@@ -2,7 +2,7 @@ import pytest
 from database import Base, get_db
 from fastapi.testclient import TestClient
 from main import app
-from models import CookBook
+from models.book_model import CookBook
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"

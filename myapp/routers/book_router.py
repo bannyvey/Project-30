@@ -22,10 +22,9 @@ async def get_recipes(session: AsyncSession = Depends(get_db)):
             )
         )
         recipes = result_scalar.all()
-        response = ResponseMenu(
+        return ResponseMenu(
             recipes=[RecipeSummary.model_validate(recipe) for recipe in recipes]
         )
-        return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
