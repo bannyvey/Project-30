@@ -1,12 +1,12 @@
 from typing import Optional
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import Integer, JSON
 
 from database import Base
+from sqlalchemy import JSON, Integer
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class CookBook(Base):
-    __tablename__ = 'cookbook'
+    __tablename__ = "cookbook"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[Optional[str]] = mapped_column(nullable=False)
