@@ -6,7 +6,7 @@ from database import Base
 
 
 class CookBook(Base):
-    __tablename__ = 'cookbook'
+    __tablename__ = "cookbook"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[Optional[str]] = mapped_column(nullable=False)

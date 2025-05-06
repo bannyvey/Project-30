@@ -1,7 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from schemes.cookbook_scheme import CreateRecipe, RecipeFullInfo, ResponseMenu, RecipeSummary
+from schemes.cookbook_scheme import (
+    CreateRecipe,
+    RecipeFullInfo,
+    ResponseMenu,
+    RecipeSummary,
+)
 from database import get_db
 from models.book_model import CookBook
 
@@ -12,9 +17,14 @@ br = APIRouter()
 async def get_recipes(session: AsyncSession = Depends(get_db)):
     try:
         result_scalar = await session.scalars(
-            select(CookBook).order_by(CookBook.views.desc(), CookBook.cooking_time.asc()))
+            select(CookBook).order_by(
+                CookBook.views.desc(), CookBook.cooking_time.asc()
+            )
+        )
         recipes = result_scalar.all()
-        response = ResponseMenu(recipes=[RecipeSummary.model_validate(recipe) for recipe in recipes])
+        response = ResponseMenu(
+            recipes=[RecipeSummary.model_validate(recipe) for recipe in recipes]
+        )
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
