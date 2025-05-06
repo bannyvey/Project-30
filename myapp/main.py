@@ -1,9 +1,9 @@
 from contextlib import asynccontextmanager
 
+from database import Base, engine
 from fastapi import FastAPI
-from routers import book_router
-from database import engine, Base
 from models.book_model import CookBook
+from routers import book_router
 
 
 @asynccontextmanager

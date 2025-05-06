@@ -1,10 +1,9 @@
 import pytest
+from database import Base, get_db
 from fastapi.testclient import TestClient
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
-
-from database import get_db, Base
 from main import app
 from models import CookBook
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 client = TestClient(app)

@@ -1,7 +1,7 @@
 import os
-from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
+from sqlalchemy.orm import DeclarativeBase
 
 PATH = os.path.dirname(os.path.abspath(__file__))
 PATH_TO_BD = os.path.join(PATH, "test_base.bd")

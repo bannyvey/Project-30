@@ -1,8 +1,8 @@
 from typing import Optional
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import Integer, JSON
 
 from database import Base
+from sqlalchemy import JSON, Integer
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class CookBook(Base):
